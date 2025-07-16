@@ -245,7 +245,7 @@
 
       <!-- <form action="https://formsubmit.co/muhammadusman999999999@gmail.com" method="POST" class="space-y-4"> -->
   <!-- <form id="booking-form" action="https://formsubmit.co/muhammadusman999999999@gmail.com" method="POST" class="space-y-4"> -->
- <form id="booking-form" action="https://formsubmit.co/ahmed@b2bleads.store" method="POST" class="space-y-4">
+ <form id="booking-form" action="https://formsubmit.co/muhammadusman999999999@gmail.com" method="POST" class="space-y-4">
   <!-- Hidden Settings -->
   <input type="hidden" name="_captcha" value="false">
   <input type="hidden" name="_template" value="table">
@@ -293,17 +293,26 @@
     <option value="Other">Other</option>
   </select>
 </div> -->
-    <div class="mb-4"> <label for="user-categories" class="block font-medium  mb-1">Business Category</label>
-        <select
-            id="user-categories"
-            name="categories"
-            required
-            class="input-field"
-        >
-            <option value="">Select a category</option>
-            </select>
-    </div>
-
+<div class="mb-4">
+  <label for="user-categories" class="block text-gray-300 font-medium mb-2">Business Category</label>
+  <select
+    id="user-categories"
+    name="categories[]"
+    multiple
+    required
+    size="8"
+    class="w-full bg-gray-700 border border-gray-600 text-white rounded px-3 py-2"
+  >
+    <option value="doctor">Doctor</option>
+    <option value="lawyer">Lawyer</option>
+    <option value="engineer">Engineer</option>
+    <!-- ... continue your 4000 options -->
+  </select>
+</div>
+<p class="text-gray-400 text-sm mb-2">Hold down the Ctrl (Windows) or Command (Mac) button to select multiple categories.</p>
+<div id="selected-categories-display" class="flex flex-wrap gap-2 mt-4 p-2 bg-gray-800 rounded border border-gray-600">
+  <span class="text-sm text-gray-400 italic" id="no-selection-message">No categories selected yet.</span>
+</div>
   <!-- Country -->
   <!-- <div>
     <label for="country" class="block font-medium">Country</label>
