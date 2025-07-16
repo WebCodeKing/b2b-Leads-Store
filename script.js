@@ -4665,3 +4665,35 @@ document.addEventListener('DOMContentLoaded', () => {
       select.dispatchEvent(new Event('change'));
     }
   });
+
+// Initialize tsParticles with a simple configuration
+    tsParticles.load("tsparticles", {
+    fullScreen: {
+      enable: false,
+    },
+    particles: {
+      number: { value: 320 },
+      size: { value: 3 },
+      move: { enable: true, speed: 1 },
+      links: { enable: true, distance: 150, color: "#ffffffff", opacity: 1 },
+      color: { value: "#ffffffff" }
+    },
+    interactivity: {
+    events: {
+      onHover: {
+        enable: true,
+        mode: "repulse"
+      },
+      resize: true
+    },
+    modes: {
+      repulse: {
+        distance: 100,
+        duration: 0.4
+      }
+    }
+  },
+    background: {
+      color: "black"
+    }
+  });

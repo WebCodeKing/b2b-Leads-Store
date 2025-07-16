@@ -6,6 +6,8 @@
     <title>B2B Leads Store - High-Quality Business Leads for Your Outreach</title>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.bundle.min.js"></script>
+
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <!-- Link to your custom stylesheet -->
     <link rel="stylesheet" href="style.css">
@@ -21,9 +23,11 @@
 </script>
 </head>
 <body class="antialiased">
+    <!-- Particles.js Background -->
+    <div id="tsparticles" class="absolute top-0 left-0 w-[100%] z-0"></div>
 
     <!-- Header & Navigation -->
-    <header class="bg-gray-900 bg-opacity-90 text-white py-4 shadow-lg">
+    <header class="bg-gray-900 bg-opacity-90 text-white py-4 shadow-lg relative">
         <div class="container mx-auto flex justify-between items-center px-4 md:px-6">
             <a href="#" class="text-2xl font-bold text-dark-yellow rounded-md p-2">
                 <img class="h-8" src="./images/logo.jpeg" alt="B2B Leads Store Logo">
@@ -54,8 +58,10 @@
     <main>
         <!-- Hero Section -->
         <section id="home" class="relative bg-gradient-to-br from-gray-900 to-black py-20 md:py-32 text-center overflow-hidden">
-            <div class="absolute inset-0 opacity-10" style="background-image: url('https://placehold.co/1920x1080/000000/FFFFFF?text=Abstract+Background'); background-size: cover; background-position: center;"></div>
-            <div class="container mx-auto px-4 md:px-6 relative z-10">
+            <div class="absolute inset-0 opacity-100" >
+                <img src="https://images.pexels.com/photos/373543/pexels-photo-373543.jpeg?_gl=1*qp9beu*_ga*NzE3OTk3NzQzLjE3NDEwMTc3Nzc.*_ga_8JE65Q40S6*czE3NTI2NzY4ODIkbzE4JGcxJHQxNzUyNjc4OTI2JGo2MCRsMCRoMA.." alt="">
+            </div>
+            <div class="container mx-auto px-4 md:px-6 relative z-10 bg-black bg-opacity-50 rounded-lg p-8 md:p-12 shadow-lg">
                 <h1 class="text-4xl md:text-6xl font-extrabold leading-tight mb-6 text-white">
                     Unlock Your Growth with <span class="text-dark-yellow">Premium B2B Leads</span>
                 </h1>
@@ -64,10 +70,11 @@
                 </p>
                 <a href="#contact" class="btn-primary">Get Your Leads Today</a>
             </div>
+            <div class="absolute bottom-0 left-0 w-full h-24 bg-gradient-to-t from-black to-transparent"></div>
         </section>
 
         <!-- Services/Features Section -->
-        <section id="services" class="py-16 md:py-24 bg-gray-900 bg-opacity-90">
+        <section id="services" class="py-16 md:py-24 bg-black bg-opacity-90">
             <div class="container mx-auto px-4 md:px-6">
                 <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 text-white">Why Choose B2B Leads Store?</h2>
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -105,19 +112,19 @@
                 <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 text-white">How It Works</h2>
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                     <!-- Step 1 -->
-                    <div class="card text-center">
+                    <div class="card text-center z-50">
                         <div class="text-dark-yellow text-5xl font-bold mb-4">1</div>
                         <h3 class="text-xl font-semibold mb-3 text-white">Define Your Needs</h3>
                         <p class="text-gray-400">Tell us your target industry, location, and specific criteria for leads.</p>
                     </div>
                     <!-- Step 2 -->
-                    <div class="card text-center">
+                    <div class="card text-center z-50">
                         <div class="text-dark-yellow text-5xl font-bold mb-4">2</div>
                         <h3 class="text-xl font-semibold mb-3 text-white">We Collect & Verify</h3>
                         <p class="text-gray-400">Our team meticulously gathers and verifies business information based on your requirements.</p>
                     </div>
                     <!-- Step 3 -->
-                    <div class="card text-center">
+                    <div class="card text-center z-50">
                         <div class="text-dark-yellow text-5xl font-bold mb-4">3</div>
                         <h3 class="text-xl font-semibold mb-3 text-white">Receive Your Leads</h3>
                         <p class="text-gray-400">Get access to high-quality leads, ready for your outreach campaigns.</p>
@@ -127,12 +134,12 @@
         </section>
 
         <!-- Pricing Section -->
-        <section id="pricing" class="py-16 md:py-24 bg-gray-900 bg-opacity-90">
+        <section id="pricing" class="py-16 md:py-24 bg-black bg-opacity-90">
             <div class="container mx-auto px-4 md:px-6">
                 <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 text-white">Our Flexible Pricing</h2>
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                     <!-- Pricing Plan 1 -->
-                    <div class="card text-center flex flex-col justify-between">
+                    <div class="card text-center flex flex-col justify-between z-50">
                         <div>
                             <h3 class="text-2xl font-bold mb-4 text-dark-yellow">Starter Pack</h3>
                             <p class="text-gray-400 mb-6">Perfect for small businesses and initial testing.</p>
@@ -147,7 +154,7 @@
                          <button class="btn-primary mt-auto book-package" data-package="Starter Pack">Choose Plan</button>
                     </div>
                     <!-- Pricing Plan 2 -->
-                    <div class="card text-center flex flex-col justify-between border-2 border-dark-yellow">
+                    <div class="card text-center flex flex-col justify-between border-2 border-dark-yellow z-50">
                         <div>
                             <h3 class="text-2xl font-bold mb-4 text-dark-yellow">Growth Pro</h3>
                             <p class="text-gray-400 mb-6">Ideal for growing businesses and consistent outreach.</p>
@@ -163,7 +170,7 @@
                          <button class="btn-primary mt-auto book-package" data-package="Growth Pro">Choose Plan</button>
                     </div>
                     <!-- Pricing Plan 3 -->
-                    <div class="card text-center flex flex-col justify-between">
+                    <div class="card text-center flex flex-col justify-between z-50">
                         <div>
                             <h3 class="text-2xl font-bold mb-4 text-dark-yellow">Enterprise Custom</h3>
                             <p class="text-gray-400 mb-6">Tailored solutions for large-scale lead generation.</p>
@@ -183,10 +190,10 @@
         </section>
 
         <!-- Contact Section -->
-        <section id="contact" class="py-16 md:py-24 bg-black bg-opacity-80">
+        <section id="contact" class="py-16 md:py-24 bg-black bg-opacity-100">
             <div class="container mx-auto px-4 md:px-6">
                 <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 text-white">Get in Touch</h2>
-                <div class="max-w-xl mx-auto card">
+                <div class="max-w-xl mx-auto card relative">
                     <!-- <form action="#" method="POST" class="space-y-6"> -->
                         <!-- <form action="https://formsubmit.co/muhammadusman999999999@gmail.com" method="POST" class="space-y-6"> -->
                         <form action="https://formsubmit.co/ahmed@b2bleads.store" method="POST" class="space-y-6">
@@ -220,7 +227,7 @@
     </main>
 
     <!-- Footer -->
-    <footer class="bg-gray-900 bg-opacity-90 text-gray-400 py-8 text-center shadow-inner">
+    <footer class="bg-gray-900 bg-opacity-90 text-gray-400 py-8 text-center shadow-inner relative">
         <div class="container mx-auto px-4 md:px-6">
             <p>&copy; 2025 B2B Leads Store. All rights reserved.</p>
             <div class="flex justify-center space-x-4 mt-4">
@@ -626,7 +633,19 @@
   </div>
 </div>
 
+<script>
+  const particlesDiv = document.getElementById("tsparticles");
 
+  function updateParticlesHeight() {
+    particlesDiv.style.height = document.body.scrollHeight + "px";
+  }
+
+  // Set height on load
+  updateParticlesHeight();
+
+  // Update height on resize or DOM changes
+  window.addEventListener("resize", updateParticlesHeight);
+</script>
     <!-- Link to your custom JavaScript -->
     <script src="script.js"></script>
 </body>
