@@ -4614,6 +4614,19 @@ professions.forEach(profession => {
     userCategoriesSelect.appendChild(option);
 });
 
+// const keyword = "doc"; // example search keyword
+
+// const filteredProfessions = professions.filter(profession =>
+//   profession.toLowerCase().includes(keyword.toLowerCase())
+// );
+
+// filteredProfessions.forEach(profession => {
+//   const option = document.createElement('option');
+//   option.value = profession;
+//   option.textContent = profession;
+//   userCategoriesSelect.appendChild(option);
+// });
+
 // MULTI-SELECT TAG DISPLAY LOGIC
 const selectElement = document.getElementById('user-categories');
 const displayContainer = document.getElementById('selected-categories-display');
