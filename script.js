@@ -4680,33 +4680,72 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
 // Initialize tsParticles with a simple configuration
+  //   tsParticles.load("tsparticles", {
+  //   fullScreen: {
+  //     enable: false,
+  //   },
+  //   particles: {
+  //     number: { value: 320 },
+  //     size: { value: 3 },
+  //     move: { enable: true, speed: 1 },
+  //     links: { enable: true, distance: 150, color: "#ffffffff", opacity: 1 },
+  //     color: { value: "#ffffffff" }
+  //   },
+  //   interactivity: {
+  //   events: {
+  //     onHover: {
+  //       enable: true,
+  //       mode: "repulse"
+  //     },
+  //     resize: true
+  //   },
+  //   modes: {
+  //     repulse: {
+  //       distance: 100,
+  //       duration: 0.4
+  //     }
+  //   }
+  // },
+  //   background: {
+  //     color: "black"
+  //   }
+  // });
+
+  const isMobileOrTablet = /Mobi|Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+
+  if (!isMobileOrTablet) {
     tsParticles.load("tsparticles", {
-    fullScreen: {
-      enable: false,
-    },
-    particles: {
-      number: { value: 320 },
-      size: { value: 3 },
-      move: { enable: true, speed: 1 },
-      links: { enable: true, distance: 150, color: "#ffffffff", opacity: 1 },
-      color: { value: "#ffffffff" }
-    },
-    interactivity: {
-    events: {
-      onHover: {
-        enable: true,
-        mode: "repulse"
+      fullScreen: {
+        enable: false,
       },
-      resize: true
-    },
-    modes: {
-      repulse: {
-        distance: 100,
-        duration: 0.4
+      particles: {
+        number: { value: 320 },
+        size: { value: 3 },
+        move: { enable: true, speed: 1 },
+        links: { enable: true, distance: 150, color: "#ffffff", opacity: 1 },
+        color: { value: "#ffffff" }
+      },
+      interactivity: {
+        events: {
+          onHover: {
+            enable: true,
+            mode: "repulse"
+          },
+          resize: true
+        },
+        modes: {
+          repulse: {
+            distance: 100,
+            duration: 0.4
+          }
+        }
+      },
+      background: {
+        color: "black"
       }
-    }
-  },
-    background: {
-      color: "black"
-    }
-  });
+    });
+  } else {
+    // Optional: remove the canvas if you already placed a div
+    const p = document.getElementById('tsparticles');
+    if (p) p.style.display = 'none';
+  }
