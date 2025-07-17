@@ -426,6 +426,13 @@
 </div> -->
 <div class="mb-4">
   <label for="user-categories" class="block text-gray-300 font-medium mb-2">Business Category</label>
+  <!-- Search Input -->
+  <input
+    type="text"
+    placeholder="Search categories..."
+    id="category-search"
+    class="w-full mb-2 bg-gray-800 text-white border border-gray-600 rounded px-3 py-2"
+  />
   <select
     id="user-categories"
     name="categories[]"
@@ -440,7 +447,7 @@
     <!-- ... continue your 4000 options -->
   </select>
 </div>
-<p class="text-gray-400 text-sm mb-2">Hold down the Ctrl (Windows) or Command (Mac) button to select multiple categories.</p>
+<!-- <p class="text-gray-400 text-sm mb-2">Hold down the Ctrl (Windows) or Command (Mac) button to select multiple categories.</p> -->
 <div id="selected-categories-display" class="flex flex-wrap gap-2 mt-4 p-2 bg-gray-800 rounded border border-gray-600">
   <span class="text-sm text-gray-400 italic" id="no-selection-message">No categories selected yet.</span>
 </div>

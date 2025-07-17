@@ -4749,3 +4749,177 @@ document.addEventListener('DOMContentLoaded', () => {
     const p = document.getElementById('tsparticles');
     if (p) p.style.display = 'none';
   }
+
+  //  const searchInput = document.getElementById('category-search');
+  // const selectBox = document.getElementById('user-categories');
+  // const options = Array.from(selectBox.options);
+
+  // searchInput.addEventListener('input', function () {
+  //   const query = this.value.toLowerCase();
+
+  //   // Clear existing options
+  //   selectBox.innerHTML = '';
+
+  //   // Filter and re-add matching options
+  //   options.forEach(option => {
+  //     if (option.text.toLowerCase().includes(query)) {
+  //       selectBox.appendChild(option);
+  //     }
+  //   });
+  // });
+
+  // // Optional: Show selected categories below
+  // // const selectedDisplay = document.getElementById('selected-categories-display');
+  // // const noSelectionMessage = document.getElementById('no-selection-message');
+
+  // selectBox.addEventListener('change', () => {
+  //   const selectedOptions = Array.from(selectBox.selectedOptions);
+  //   selectedDisplay.innerHTML = '';
+
+  //   if (selectedOptions.length === 0) {
+  //     selectedDisplay.appendChild(noSelectionMessage);
+  //     noSelectionMessage.style.display = 'inline';
+  //   } else {
+  //     noSelectionMessage.style.display = 'none';
+  //     selectedOptions.forEach(opt => {
+  //       const span = document.createElement('span');
+  //       span.className = 'bg-blue-600 text-white px-2 py-1 rounded text-sm';
+  //       span.textContent = opt.text;
+  //       selectedDisplay.appendChild(span);
+  //     });
+  //   }
+  // });
+
+  //  const selectBox = document.getElementById('user-categories');
+  // const searchInput = document.getElementById('category-search');
+
+  // const allOptions = Array.from(selectBox.options); // keep a full copy
+  // const selectedValues = new Set();
+
+  // // When user changes selection, update the selectedValues Set
+  // selectBox.addEventListener('change', () => {
+  //   Array.from(selectBox.options).forEach(option => {
+  //     if (option.selected) {
+  //       selectedValues.add(option.value);
+  //     } else {
+  //       selectedValues.delete(option.value);
+  //     }
+  //   });
+  //   updateSelectedDisplay();
+  // });
+
+  // // Filter options while preserving selected
+  // searchInput.addEventListener('input', () => {
+  //   const query = searchInput.value.toLowerCase();
+
+  //   // Clear current options
+  //   selectBox.innerHTML = '';
+
+  //   // Re-add options that match
+  //   allOptions.forEach(option => {
+  //     if (option.text.toLowerCase().includes(query)) {
+  //       const newOption = option.cloneNode(true);
+  //       if (selectedValues.has(option.value)) {
+  //         newOption.selected = true;
+  //       }
+  //       selectBox.appendChild(newOption);
+  //     }
+  //   });
+  // });
+
+  // function updateSelectedDisplay() {
+  //   const display = document.getElementById('selected-categories-display');
+  //   const message = document.getElementById('no-selection-message');
+  //   display.innerHTML = '';
+
+  //   if (selectedValues.size === 0) {
+  //     message.style.display = 'inline';
+  //     display.appendChild(message);
+  //   } else {
+  //     message.style.display = 'none';
+  //     allOptions.forEach(option => {
+  //       if (selectedValues.has(option.value)) {
+  //         const span = document.createElement('span');
+  //         span.className = 'bg-blue-600 text-white px-2 py-1 rounded text-sm';
+  //         span.textContent = option.text;
+  //         display.appendChild(span);
+  //       }
+  //     });
+  //   }
+  // }
+
+  // // Initial display
+  // updateSelectedDisplay();
+
+    const selectBox = document.getElementById('user-categories');
+  const searchInput = document.getElementById('category-search');
+
+  const allOptions = Array.from(selectBox.options); // full original list
+  const selectedValues = new Set();
+
+  // Track selected values
+  selectBox.addEventListener('change', () => {
+    Array.from(selectBox.options).forEach(option => {
+      if (option.selected) {
+        selectedValues.add(option.value);
+      } else {
+        selectedValues.delete(option.value);
+      }
+    });
+    updateSelectedDisplay();
+  });
+
+  // Filter options while keeping selected ones always visible
+  searchInput.addEventListener('input', () => {
+    const query = searchInput.value.toLowerCase();
+
+    selectBox.innerHTML = '';
+
+    const added = new Set();
+
+    // First: always show selected options
+    allOptions.forEach(option => {
+      if (selectedValues.has(option.value)) {
+        const opt = option.cloneNode(true);
+        opt.selected = true;
+        selectBox.appendChild(opt);
+        added.add(opt.value);
+      }
+    });
+
+    // Then: add matching ones not already added
+    allOptions.forEach(option => {
+      if (
+        option.text.toLowerCase().includes(query) &&
+        !added.has(option.value)
+      ) {
+        const opt = option.cloneNode(true);
+        opt.selected = false;
+        selectBox.appendChild(opt);
+      }
+    });
+  });
+
+  function updateSelectedDisplay() {
+    const display = document.getElementById('selected-categories-display');
+    const message = document.getElementById('no-selection-message');
+    display.innerHTML = '';
+
+    if (selectedValues.size === 0) {
+      message.style.display = 'inline';
+      display.appendChild(message);
+    } else {
+      message.style.display = 'none';
+      allOptions.forEach(option => {
+        if (selectedValues.has(option.value)) {
+          const span = document.createElement('span');
+          span.className = 'bg-blue-600 text-white px-2 py-1 rounded text-sm';
+          span.textContent = option.text;
+          display.appendChild(span);
+        }
+      });
+    }
+  }
+
+  // Initial call
+  updateSelectedDisplay();
